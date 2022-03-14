@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+const { Sequelize } = require("sequelize")
 //local
 // const db = new  Sequelize('abogcqvs_node', 'root', '',{
 //     host:'localhost',
@@ -10,4 +10,5 @@ const db = new  Sequelize('abogcqvs_nodejs', 'abogcqvs_selin', 'Marcos1683947_',
     dialect: 'mysql'
 })
 
-export default db
+// export default db
+module.exports = db;

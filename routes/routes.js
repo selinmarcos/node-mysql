@@ -1,6 +1,6 @@
-import express from 'express'
-import { getAllBlogs, getBlog, createBlog, updateBlog, deleteBlog,  } from '../controllers/BlogController.js'
-import { getAllUsers, createUser } from '../controllers/UserController.js'
+const express = require('express')
+const { getAllBlogs, getBlog, createBlog, updateBlog, deleteBlog,  } = require('../controllers/BlogController.js')
+const { getAllUsers, createUser } = require('../controllers/UserController.js')
 
 const router = express.Router()
 //BLOGS
@@ -14,4 +14,4 @@ router.delete('/blogs/:id', deleteBlog)
 router.get('/users', getAllUsers)
 router.post('/register', createUser)
 
-export default router
+module.exports = router

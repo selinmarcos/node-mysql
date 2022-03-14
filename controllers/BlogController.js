@@ -1,9 +1,9 @@
-import BlogModel from "../models/BlogModel.js";
+const BlogModel = require("../models/BlogModel.js")
 
 //Metodos para CRUD
 
 //GET
-export const getAllBlogs = async (req, res) => {
+const getAllBlogs = async (req, res) => {
     try{
         const blogs = await BlogModel.findAll()
         res.json(blogs)
@@ -13,7 +13,7 @@ export const getAllBlogs = async (req, res) => {
     }
 }
 //GET ONE 
-export const getBlog = async (req, res) => {
+const getBlog = async (req, res) => {
     try{
         const blogs = await BlogModel.findAll({
             where:{id:req.params.id}
@@ -25,7 +25,7 @@ export const getBlog = async (req, res) => {
     }
 }
 //POST
-export const createBlog = async (req, res) => {
+const createBlog = async (req, res) => {
 
     try{
         await BlogModel.create(req.body)
@@ -40,7 +40,7 @@ export const createBlog = async (req, res) => {
 
 //EDIT
 
-export const updateBlog = async (req, res) =>{
+const updateBlog = async (req, res) =>{
     try {
         await BlogModel.update(req.body, {
             where:{id:req.params.id}
@@ -55,7 +55,7 @@ export const updateBlog = async (req, res) =>{
 
 //DELETE
 
-export const deleteBlog = async(req, res) =>{
+const deleteBlog = async(req, res) =>{
     try {
         await BlogModel.destroy({
             where:{id:req.params.id}
@@ -67,3 +67,5 @@ export const deleteBlog = async(req, res) =>{
         res.json({message: error.message})
     }
 }
+
+module.exports = {getAllBlogs, createBlog, deleteBlog, updateBlog, getBlog}

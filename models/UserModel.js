@@ -1,9 +1,9 @@
-import db from "../database/db.js";
-import { DataTypes } from "sequelize";
+const db = require("../database/db.js")
+const { DataTypes } = require("sequelize")
 
 const UserModel= db.define('users',{
     user:{type: DataTypes.STRING},
     pass:{type: DataTypes.STRING}
 })
 
-export default UserModel
+module.exports = UserModel

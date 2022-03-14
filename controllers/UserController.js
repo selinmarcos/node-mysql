@@ -1,9 +1,9 @@
-import UserModel from "../models/UserModel.js"
+const UserModel = require("../models/UserModel.js")
 
 //Metodos para CRUD
 
 //GET
-export const getAllUsers = async (req, res) => {
+const getAllUsers = async (req, res) => {
     try{
         const users = await UserModel.findAll()
         console.log("llegue")
@@ -15,7 +15,7 @@ export const getAllUsers = async (req, res) => {
 }
 
 //POST
-export const createUser = async (req, res) => {
+const createUser = async (req, res) => {
 
     try{
         await UserModel.create({
@@ -30,3 +30,5 @@ export const createUser = async (req, res) => {
         res.json({message: error.message})
     }
 }
+
+module.exports= {getAllUsers, createUser}
